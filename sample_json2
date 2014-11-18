@@ -1,0 +1,22 @@
+[
+    {
+        "Name": "DLX to matchEvents",
+        "ActionOnFailure": "TERMINATE_JOB_FLOW",
+        "HadoopJarStep":
+        {
+            "MainClass": "com.acxiom.dl.framework.MRJobRunner",
+            "Jar": "<DMP_ANALYTICS_JAR>",
+            "Args":
+            [
+                "-c",
+                "DD_S3_HOME/dlxFootprint/DLXprocessor.properties",
+                "-input.paths",
+                "DD_S3_HOME/dlxFootprint/input",
+                "-output.path",
+                "DD_S3_HOME/dlxFootprint/output",
+                "-end.date",
+                "CMD_DATE",
+            ]
+        }
+    }
+]
